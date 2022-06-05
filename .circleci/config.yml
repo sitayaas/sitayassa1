@@ -2,9 +2,9 @@ version: 2.1
 jobs: 
   build: 
     machine: 
-      resource_class: xlarge 
+      resource_class: xlarge
       image: ubuntu-2004:202101-01 
-    steps: 
+  steps: 
       - run:  
          name: Downloading 
          command: | 
